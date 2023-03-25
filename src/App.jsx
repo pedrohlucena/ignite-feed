@@ -5,6 +5,55 @@ import { Sidebar } from "./components/Sidebar"
 import './global.css'
 import styles from './App.module.css'
 
+const posts = [
+  {
+      id: 1,
+      author: {
+          avatarUrl: 'https://github.com/maykbrito.png',
+          name: 'Maik Brito',
+          role: 'Sênior Web Dev'
+      },
+      content: [
+          {
+              type: 'paragraph',
+              content: 'Fala galeraa 👋'
+          },
+          {
+              type: 'paragraph',
+              content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'
+          },
+          {
+              type: 'link',
+              content: 'jane.design/doctorcare'
+          }
+      ],
+      publishedAt: new Date('2023-03-24 23:42:00')
+  },
+  {
+      id: 2,
+      author: {
+          avatarUrl: 'https://github.com/diego3g.png',
+          name: 'Diego Fernandes',
+          role: 'CTO @Rocketseat'
+      },
+      content: [
+          {
+              type: 'paragraph',
+              content: 'Fala galeraa 👋'
+          },
+          {
+              type: 'paragraph',
+              content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'
+          },
+          {
+              type: 'link',
+              content: 'jane.design/doctorcare'
+          }
+      ],
+      publishedAt: new Date('2023-03-25 19:12:00')
+  },
+]
+
 export function App() {
 
   return (
@@ -14,14 +63,13 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Pedro H. Lucena"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos nulla ex facilis magnam vel molestias, quod incidunt obcaecati aperiam iure. Aliquid enim itaque laudantium, corrupti libero provident cum? Sed, hic."
-          />
-          <Post
-            author="Lucas Silva"
-            content="Hoje eu almocei uma banana"
-          />
+          {posts.map(post => (
+              <Post 
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            ))}
         </main>
       </div>
     </div>

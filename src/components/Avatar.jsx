@@ -2,7 +2,7 @@ import styles from './Avatar.module.css'
 
 export function Avatar({
     hasBorder = true, 
-    imageUrl
+    avatarUrl
 }) {
     const avatar = [
         styles.avatar,
@@ -12,7 +12,7 @@ export function Avatar({
     return (
         <img 
             className={avatar}
-            src={imageUrl}
+            src={avatarUrl}
         />
     )
 }
