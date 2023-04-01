@@ -14,6 +14,10 @@ export function Comment({
 
     const handleLikeComment = () => setLikeCount(likeCount + 1)
 
+    function handleLike() {
+        setLikeCount(likeCount + 1)
+    }
+
     return(
         <div className={styles.comment}>
             <Avatar hasBorder={false} avatarUrl="https://github.com/diego3g.png" />
