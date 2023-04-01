@@ -20,13 +20,13 @@ export function Comment({
 
     return(
         <div className={styles.comment}>
-            <Avatar hasBorder={false} avatarUrl="https://github.com/diego3g.png" />
+            <Avatar hasBorder={false} avatarUrl="https://github.com/pedrohlucena.png" />
 
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>
                         <div className={styles.authorAndTime}>
-                            <strong>Diego Fernandes</strong> 
+                            <strong>Pedro H. Lucena</strong> 
                             <time title="11 de maio às 08:13h" dateTime="2022-05-11 08:13:30">Cerca de 1h atrás</time>
                         </div>
                         <button onClick={handleDeleteComment} title="Deletar comentário">
