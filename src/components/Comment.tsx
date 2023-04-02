@@ -24,7 +24,7 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
     <div className={styles.comment}>
       <Avatar
         hasBorder={false}
-        avatarUrl="https://github.com/pedrohlucena.png"
+        src="https://github.com/pedrohlucena.png"
         alt=""
       />
 
