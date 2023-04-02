@@ -13,31 +13,35 @@ interface Author {
   avatarUrl: string;
 }
 
-export interface Content {
-  type: "paragraph" | "link" | string;
+interface Content {
+  type: "paragraph" | "link";
   content: string;
 }
 
-interface PostProps {
+export interface IPost {
+  id: number;
   author: Author;
   content: Content[];
   publishedAt: Date;
 }
+interface PostProps {
+  post: IPost;
+}
 
-export function Post({ author, content, publishedAt }: PostProps) {
+export function Post({ post }: PostProps) {
   const [comments, setComments] = useState<string[]>([]);
 
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
-    publishedAt,
+    post.publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
     {
       locale: ptBr,
     }
   );
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBr,
     addSuffix: true,
   });
@@ -70,10 +74,10 @@ export function Post({ author, content, publishedAt }: PostProps) {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src={author.avatarUrl} />
+          <Avatar src={post.author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{post.author.name}</strong>
+            <span>{post.author.role}</span>
           </div>
         </div>
 
@@ -83,7 +87,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
       </header>
 
       <div className={styles.content}>
-        {content.map((line) => {
+        {post.content.map((line) => {
           switch (line.type) {
             case "paragraph":
               return <p key={line.content}>{line.content}</p>;
